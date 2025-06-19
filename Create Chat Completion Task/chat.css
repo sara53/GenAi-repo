@@ -1,0 +1,141 @@
+body {
+	background: linear-gradient(135deg, #e0e7ff 0%, #f5f7fb 100%);
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	margin: 0;
+	padding: 0;
+	min-height: 100vh;
+	position: relative;
+	overflow: hidden;
+}
+
+html {
+	height: 100%;
+}
+
+.container-fluid.vh-100 {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+main.col-12.col-md-9.col-lg-10.d-flex.flex-column.p-0.position-relative.bg-light {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+#chat-window {
+	flex-grow: 1;
+	overflow-y: auto;
+	min-height: 0;
+}
+
+#chat-form {
+	position: sticky;
+	bottom: 0;
+	background: #fff;
+	z-index: 10;
+}
+
+.background-pattern {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 0;
+	pointer-events: none;
+	background: url("https://www.transparenttextures.com/patterns/cubes.png");
+	opacity: 0.08;
+}
+
+/* Chat bubbles */
+.message {
+	display: flex;
+	align-items: flex-end;
+	gap: 10px;
+	margin-bottom: 1rem;
+	animation: fadeInUp 0.5s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}
+
+.message.user {
+	flex-direction: row-reverse;
+	justify-content: flex-end;
+}
+
+.message.assistant {
+	flex-direction: row;
+	justify-content: flex-start;
+}
+
+@keyframes fadeInUp {
+	0% {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.bubble {
+	max-width: 75%;
+	padding: 14px 18px;
+	border-radius: 20px 20px 8px 20px;
+	font-size: 1.08rem;
+	line-height: 1.6;
+	word-break: break-word;
+	box-shadow: 0 2px 12px rgba(16, 163, 127, 0.06);
+	position: relative;
+	transition: background 0.2s;
+}
+
+.message.user .bubble {
+	background: linear-gradient(135deg, #6a82fb 80%, #fc5c7d 100%);
+	color: #fff;
+	border-bottom-right-radius: 4px;
+	align-self: flex-end;
+}
+
+.message.assistant .bubble {
+	background: linear-gradient(135deg, #e6eaf1 80%, #c3cfe2 100%);
+	color: #222;
+	border-bottom-left-radius: 4px;
+	align-self: flex-start;
+}
+
+.avatar {
+	width: 38px;
+	height: 38px;
+	border-radius: 50%;
+	background: #fff;
+	box-shadow: 0 2px 8px rgba(16, 163, 127, 0.1);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1.5rem;
+	margin-bottom: 2px;
+}
+
+.message.user .avatar {
+	background: linear-gradient(135deg, #6a82fb 80%, #fc5c7d 100%);
+	color: #fff;
+}
+
+.message.assistant .avatar {
+	background: linear-gradient(135deg, #e6eaf1 80%, #c3cfe2 100%);
+	color: #10a37f;
+}
+
+::-webkit-scrollbar {
+	width: 8px;
+	background: #e6eaf1;
+	border-radius: 8px;
+}
+::-webkit-scrollbar-thumb {
+	background: #c3cfe2;
+	border-radius: 8px;
+}
+
+/* Remove old chat-container and sidebar styles, Bootstrap handles layout */
